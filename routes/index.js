@@ -9,7 +9,7 @@ const url = "https://api.themoviedb.org/3/discover/movie?api_key=";
 router.get("/movies", (req, res) => {
   fetch(url + process.env.API_KEY)
     .then((response) => response.json())
-    .then((data) => res.json(data.results));
+    .then((data) => res.json({ movies: data.results }));
 });
 
 module.exports = router;
